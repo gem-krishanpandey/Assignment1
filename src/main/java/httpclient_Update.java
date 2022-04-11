@@ -1,31 +1,24 @@
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
-import org.json.simple.JSONObject;
-import java.io.IOException;
-import java.util.Scanner;
-import java.util.concurrent.Executor;
-
-public class httpclient_POST {
-    public static void main(String[] args) throws ClientProtocolException, IOException {
-        try {
+public class httpclient_Update {
+    public static void main(String[] args) {
+        try{
             CloseableHttpClient client = HttpClients.createDefault();
-            HttpPost httpPost = new HttpPost("https://gorest.co.in/public/v2/users");
-            httpPost.addHeader("Accept", "application/json");
-            httpPost.addHeader("Content-Type", "application/json");
-            httpPost.addHeader("Authorization", "Bearer c5bffe9dab670c11211e8e2551321374f44f922cc4c0855c2878cb4319926a01");
-            StringBuilder nameObject = new StringBuilder();
+            HttpPut httpPost = new HttpPut("https://gorest.co.in/public/v2/users/2974");
+            httpPost.addHeader("Accept","application/json");
+            httpPost.addHeader("Content-Type","application/json");
+            httpPost.addHeader("Authorization","Bearer c5bffe9dab670c11211e8e2551321374f44f922cc4c0855c2878cb4319926a01");
+            StringBuilder nameObject=new StringBuilder();
             nameObject.append("{");
             nameObject.append("\"name\":\"Krishan\",");
-            nameObject.append("\"email\":\"krishan.pandey@geminisolutions.com\",");
-            nameObject.append("\"gender\":\"male\",");
+            nameObject.append("\"email\":\"pandeykrishan2001@gmail.com\",");
+            nameObject.append("\"gender\":\"Male\",");
             nameObject.append("\"status\":\"active\"");
             nameObject.append("}");
 
@@ -36,7 +29,6 @@ public class httpclient_POST {
             System.out.println(response.getStatusLine().getStatusCode());
             client.close();
         } catch (Exception e) {
-
 
         }
     }
